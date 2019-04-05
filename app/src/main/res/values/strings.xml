@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">TechlantaDemo</string>
     <string name="title_activity_welcome_screen">Map</string>
+    <string name="title_activity_login">LoginActivity</string>
 </resources>
