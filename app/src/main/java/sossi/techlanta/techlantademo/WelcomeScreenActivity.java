@@ -1,6 +1,7 @@
 package sossi.techlanta.techlantademo;
 
 import android.content.Context;
+import android.content.Intent;
 import android.location.Location;
 import android.location.LocationManager;
 import android.support.v4.app.FragmentActivity;
@@ -13,6 +14,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.List;
@@ -60,9 +62,28 @@ public class WelcomeScreenActivity extends FragmentActivity implements OnMapRead
 //            LatLng here = new LatLng(lat, longitude);
             LatLng here = new LatLng(33.7764, -84.3884);
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(here, 17));
-            List<Event> allEvents = EventsManager.getInstance()
-            for (int i = 0; i <)
-            mMap.addMarker(new MarkerOptions());
+            List<Event> allEvents = EventsManager.getInstance().events;
+            mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+                @Override
+                public void onInfoWindowClick(Marker marker) {
+                    MarkerData markerData =  (MarkerData) marker.getTag();
+                    Event event = markerData.e;
+                    if (!markerData.clickedOnce) {
+                        markerData.clickedOnce = true;
+                    } else {
+                        Intent i = new Intent(getApplicationContext(), EventDetailsActivity.class);
+                        i.putExtra("event", event);
+                        startActivity(i);
+                    }
+                }
+            });
+            for (int i = 0; i < allEvents.size(); i++) {
+                Event e = allEvents.get(i);
+                LatLng ePosition = new LatLng(e.latitude, e.longitude);
+                Marker marker = mMap.addMarker(new MarkerOptions().position(ePosition).title(e.name).snippet(e.description));
+                MarkerData markerData = new MarkerData(e);
+                marker.setTag(markerData);
+            }
 //            mMap.moveCamera(CameraUpdateFactory.zoomBy(17));
 
         } catch (SecurityException se) {
