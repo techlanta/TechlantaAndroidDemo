@@ -1,7 +1,11 @@
 package sossi.techlanta.techlantademo;
 
+import android.content.Context;
+import android.location.Location;
+import android.location.LocationManager;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -39,8 +43,18 @@ public class WelcomeScreenActivity extends FragmentActivity implements OnMapRead
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+        String locationProvider = LocationManager.NETWORK_PROVIDER;
+// Or use LocationManager.GPS_PROVIDER
+
+        try {
+            Location lastKnownLocation = locationManager.getLastKnownLocation(locationProvider);
+            double lat = lastKnownLocation.getLatitude();
+            double longitude = lastKnownLocation.getLongitude();
+            LatLng here = new LatLng(lat, longitude);
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(here));
+        } catch (SecurityException se) {
+            Toast.makeText(this, "We need permission to show your current location", Toast.LENGTH_SHORT).show();
+        }
     }
 }
