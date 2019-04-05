@@ -68,13 +68,13 @@ public class WelcomeScreenActivity extends FragmentActivity implements OnMapRead
                 public void onInfoWindowClick(Marker marker) {
                     MarkerData markerData =  (MarkerData) marker.getTag();
                     Event event = markerData.e;
-                    if (!markerData.clickedOnce) {
-                        markerData.clickedOnce = true;
-                    } else {
-                        Intent i = new Intent(getApplicationContext(), EventDetailsActivity.class);
-                        i.putExtra("event", event);
-                        startActivity(i);
-                    }
+//                    if (!markerData.clickedOnce) {
+//                        markerData.clickedOnce = true;
+//                    } else {
+                    Intent i = new Intent(getApplicationContext(), EventDetailsActivity.class);
+                    i.putExtra("event", event);
+                    startActivity(i);
+//                    }
                 }
             });
             for (int i = 0; i < allEvents.size(); i++) {
