@@ -3,4 +3,5 @@
     <string name="title_activity_welcome_screen">Map</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_event_details">EventDetailsActivity</string>
+    <string name="title_activity_rsvpevents">RSVP-ed Events</string>
 </resources>

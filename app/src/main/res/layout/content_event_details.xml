@@ -44,7 +44,8 @@
         android:text="RSVP"
         app:layout_constraintBottom_toTopOf="@+id/TrackEvent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="onClickRSVP"/>
 
     <Button
         android:id="@+id/TrackEvent"

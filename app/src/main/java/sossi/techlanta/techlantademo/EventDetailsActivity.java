@@ -1,5 +1,6 @@
 package sossi.techlanta.techlantademo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 import org.w3c.dom.Text;
 
 import sossi.techlanta.techlantademo.model.Event;
+import sossi.techlanta.techlantademo.model.EventsManager;
 
 public class EventDetailsActivity extends AppCompatActivity {
 
@@ -32,7 +34,12 @@ public class EventDetailsActivity extends AppCompatActivity {
         eventDetails = findViewById(R.id.EventDetailTextView);
         eventDetails.setText(e.description);
 
-
     }
 
+
+    public void onClickRSVP(View view) {
+        EventsManager.getInstance().RSVPedEvents.add(e);
+        Intent i = new Intent(this, RSVPEventsActivity.class);
+        startActivity(i);
+    }
 }

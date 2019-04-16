@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Set;
 
 public class Event implements Serializable {
+    public boolean RSVP = false;
+    public Event() {
+    }
     public Date dateStart;
     public Date dateEnd;
     public String name;
