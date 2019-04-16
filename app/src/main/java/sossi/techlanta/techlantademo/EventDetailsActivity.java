@@ -33,9 +33,7 @@ public class EventDetailsActivity extends AppCompatActivity {
         eventName.setText(e.name);
         eventDetails = findViewById(R.id.EventDetailTextView);
         eventDetails.setText(e.description);
-
     }
-
 
     public void onClickRSVP(View view) {
         EventsManager.getInstance().RSVPedEvents.add(e);
