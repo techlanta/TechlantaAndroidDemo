@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "411542559838",
+    "firebase_url": "https://playatlanta-f1477.firebaseio.com",
+    "project_id": "playatlanta-f1477",
+    "storage_bucket": "playatlanta-f1477.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:411542559838:android:501549abd02a7dcf",
+        "android_client_info": {
+          "package_name": "sossi.techlanta.techlantademo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "411542559838-1e19b9d0iapcb8olpfiiiqioctkt1rh4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "sossi.techlanta.techlantademo",
+            "certificate_hash": "6a9b73c2ea1dacfcb24e2436cb8fd258bbbd75b3"
+          }
+        },
+        {
+          "client_id": "411542559838-notdph9o9re04q4c8gn1nq65t2oithap.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDatBD0GUSJXnppY6pGUpc3b14BdRzDYIs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "411542559838-notdph9o9re04q4c8gn1nq65t2oithap.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

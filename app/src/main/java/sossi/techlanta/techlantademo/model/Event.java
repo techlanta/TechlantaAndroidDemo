@@ -15,6 +15,11 @@ public class Event implements Serializable {
     public String description;
     public Double latitude;
     public Double longitude;
+    public String eventID;
 
     public Set<AccessibilityOptions> availableOptions;
+    public void setEventID(String eventID) {
+        this.eventID = eventID;
+    }
+    public void isRSVPed(Boolean RSVP){this.RSVP = RSVP;}
 }
